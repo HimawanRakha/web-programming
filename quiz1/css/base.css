@@ -92,7 +92,7 @@ body {
 
 .main-content {
   flex-grow: 1; /* Konten mengisi sisa ruang */
-  margin-left: 280px; /* Memberi ruang untuk sidebar fixed */
+  margin-left: 340px; /* Memberi ruang untuk sidebar fixed */
   padding: 2rem 3rem;
   overflow-y: auto; /* Agar bisa di-scroll jika konten panjang */
   height: 100vh;

@@ -8,12 +8,11 @@
   overflow: hidden;
 }
 
-/* 1. Layout Utama Halaman Home diubah menjadi Grid */
 #page-home .main-content {
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 1.5rem;
-  padding: 3rem 4rem;
+  padding: 3rem 3rem;
 }
 
 .welcome-text-container {
@@ -59,7 +58,7 @@
 .nav-grid-container {
   grid-row: 2 / 3; /* Menempati baris kedua */
   width: 100%;
-  height: 65%;
+  height: 75%;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,4 +1,26 @@
 // quiz1/js/main.js
+
+// Fungsi baru untuk menandai link yang aktif
+function updateActiveNav() {
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll(".sidebar-nav .nav-link");
+
+  navLinks.forEach((link) => {
+    const linkPath = link.getAttribute("href");
+
+    link.classList.remove("active");
+
+    if (currentPath === linkPath || (currentPath.startsWith(linkPath) && currentPath.charAt(linkPath.length) === "i")) {
+      link.classList.add("active");
+    }
+    if (currentPath === "/quiz1/" || currentPath === "/quiz1/index.html") {
+      if (linkPath === "/quiz1/") {
+        link.classList.add("active");
+      }
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const loadComponent = async (url, elementId) => {
     try {
@@ -10,8 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Failed to load component:", error);
     }
   };
+  const currentPath = window.location.pathname;
+  const isSubPage = currentPath.includes("/profile/") || currentPath.includes("/hometown/") || currentPath.includes("/food/") || currentPath.includes("/tourist/");
+  const pathPrefix = isSubPage ? "../" : "./";
+  // const pathPrefix = window.location.pathname.split("/")[1] !== "quiz1" ? "" : "../";
 
-  const pathPrefix = window.location.pathname.includes("/profile/") || window.location.pathname.includes("/hometown/") || window.location.pathname.includes("/food/") || window.location.pathname.includes("/tourist/") ? "../" : "";
-
-  loadComponent(`${pathPrefix}components/sidebar.html`, "sidebar-placeholder");
+  // Setelah komponen sidebar selesai dimuat, panggil fungsi updateActiveNav
+  loadComponent(`${pathPrefix}/components/sidebar.html`, "sidebar-placeholder").then(() => {
+    updateActiveNav();
+  });
 });

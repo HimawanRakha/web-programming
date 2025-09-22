@@ -1,66 +1,163 @@
 /* quiz1/css/profile.css */
 
-/* === GAYA SPESIFIK: PROFILE === */
 #page-profile {
   background-color: #f8fafc;
+  /* Diperlukan untuk background icon */
+  z-index: 1;
+  overflow-x: hidden;
 }
 
-.profile-header {
+.main-content {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.main-content::after {
+  content: "";
+  position: absolute;
+  width: 1500px;
+  height: 1500px;
+  background-image: url("../image/bg-logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 250%;
+  right: -550px;
+  transform: translateY(-50%);
+
+  /* REKOMENDASI: Opacity sebaiknya sangat rendah agar tidak menutupi teks */
+  opacity: 0.8;
+  z-index: -1;
+}
+.main-content::before {
+  content: "";
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  background-image: url("../image/bg-logo2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 600%;
+  right: -550px;
+  transform: translateY(-50%);
+
+  /* REKOMENDASI: Opacity sebaiknya sangat rendah agar tidak menutupi teks */
+  opacity: 0.8;
+  z-index: -1;
+}
+
+/* KARTU PROFIL UTAMA (HEADER) */
+.profile-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+}
+
+.profile-banner {
+  height: 150px;
+  background-color: #e2e8f0;
+  background-image: url("../image/bg-main.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.profile-details {
   display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  align-items: flex-start; /* Agar deskripsi sejajar atas */
+  padding: 0 2rem 1.5rem 2rem;
 }
-.profile-pic-placeholder {
-  width: 120px;
-  height: 120px;
-  background-color: var(--text-secondary);
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  border: 5px solid #ffffff;
   flex-shrink: 0;
+  margin-top: -75px; /* Trik untuk menaikkan foto profil */
+  background-color: #cbd5e1;
+  background-image: url("../image/bg-profile.jpg");
+  background-size: cover;
+  position: relative;
+  z-index: 2;
 }
-.profile-intro h1 {
+
+.profile-info {
+  padding: 1.5rem;
+}
+.profile-info h1 {
   margin: 0 0 0.5rem 0;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
-.profile-intro p {
+.profile-info p {
   margin: 0;
   color: var(--text-secondary);
-  font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
+/* DIVIDER ANTAR SEKSI */
+.section-divider {
+  border: none;
+  height: 1px;
+  background-color: #e2e8f0; /* Warna hitam lebih soft */
+  margin: 0 0 2.5rem 0;
+}
+
+/* TIMELINE SECTION */
 .timeline-section {
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
+  padding-left: 2rem;
 }
 .timeline-section h2 {
   font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-.timeline-wrapper {
-  position: relative;
-  padding-left: 2rem;
-  border-left: 2px solid #e2e8f0;
-}
-.timeline-item {
-  position: relative;
   margin-bottom: 2rem;
 }
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -2.6rem;
-  top: 5px;
-  width: 16px;
-  height: 16px;
-  background-color: var(--accent-purple);
-  border-radius: 50%;
-  border: 3px solid #fff;
-}
-.timeline-item:nth-child(odd) .timeline-content {
+
+.timeline-wrapper {
   position: relative;
-  background: #f0fdf4;
-  padding: 1.5rem;
-  border-radius: 12px;
+
+  border-left: 2px solid #e2e8f0;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Wadah Ikon SVG Baru */
+.timeline-icon {
+  position: absolute;
+  left: -26px; /* (3rem padding - (lebar garis/2)) - (lebar ikon/2) */
+  top: -8px;
+  width: 50px;
+  height: 40px;
+  background-color: var(--accent-purple);
+  /* background-color: var(--accent-green); */
+
+  -webkit-mask-image: url("../image/ic_dot.svg"); /* Ganti dengan path SVG Anda */
+  mask-image: url("../image/ic_dot.svg"); /* Ganti dengan path SVG Anda */
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #f8fafc; /* Border warna background agar terlihat "terpisah" */
+}
+/* Anda bisa menata SVG di dalamnya, contoh: */
+.timeline-icon svg {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+.timeline-content {
+  padding-left: 2rem;
 }
 .timeline-content h3 {
   margin: 0 0 0.25rem 0;
