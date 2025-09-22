@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Food - Lumajang</title>
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/food.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body id="page-food">
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main-content">
+      <div class="food-header">
+        <h1>Local Food</h1>
+        <p>Kuliner khas Lumajang menghadirkan cita rasa tradisional yang unik dan menggugah selera.</p>
+      </div>
+
+      <div class="search-container">
+        <input type="search" id="searchInput" placeholder="Cari makanan..." />
+        <span class="search-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+          </svg>
+        </span>
+      </div>
+
+      <div id="foodGrid" class="food-grid"></div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/food.js"></script>
+  </body>
+</html>

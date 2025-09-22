@@ -1,0 +1,98 @@
+/* quiz1/css/food.css */
+
+.food-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.food-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.food-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 50ch;
+  margin: 0 auto;
+}
+
+/* KOTAK PENCARIAN */
+.search-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 3rem auto;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 1rem 3.5rem 1rem 1.5rem; /* Beri ruang kanan untuk ikon */
+  border: 1px solid #e2e8f0;
+  border-radius: 999px; /* Membuat bentuk kapsul */
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+#searchInput:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.15);
+}
+
+.search-icon {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  color: var(--text-secondary);
+}
+
+/* GRID MAKANAN */
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.food-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-purple);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.07);
+}
+
+.food-photo {
+  background-color: #000000;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.food-info {
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+}
+
+.food-info h3 {
+  justify-content: center;
+  text-align: center;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+}
+
+.food-info p {
+  text-align: center;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
