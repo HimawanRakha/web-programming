@@ -1,0 +1,117 @@
+/* quiz1/css/tourist.css */
+
+.tourist-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.tourist-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.tourist-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 50ch;
+  margin: 0 auto;
+}
+
+/* KOTAK PENCARIAN (Sama seperti halaman Food) */
+.search-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 3rem auto;
+}
+#searchInput {
+  width: 100%;
+  padding: 1rem 3.5rem 1rem 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+#searchInput:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.15);
+}
+
+.search-icon {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  color: var(--text-secondary);
+}
+
+/* GRID WISATA */
+.tourist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.tourist-card {
+  position: relative; /* Wajib untuk menata teks di atasnya */
+  aspect-ratio: 3 / 4; /* Rasio kartu potrait */
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 1.5rem;
+  display: flex; /* Untuk menata konten di dalamnya */
+  flex-direction: column;
+  justify-content: space-between; /* Mendorong tombol ke atas & teks ke bawah */
+  color: white;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.tourist-card:hover {
+  transform: scale(1.03);
+}
+
+/* Gradasi gelap di atas gambar agar teks terbaca */
+.tourist-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.4) 100%);
+  z-index: 1;
+}
+
+.card-content,
+.card-button {
+  position: relative;
+  z-index: 2; /* Pastikan konten di atas gradasi */
+}
+
+.card-button {
+  align-self: flex-end; /* Posisikan tombol di kanan atas */
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.card-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.75rem;
+}
+.card-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}

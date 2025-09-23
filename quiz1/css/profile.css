@@ -172,3 +172,25 @@
   margin: 0;
   color: var(--text-secondary);
 }
+
+@media (max-width: 768px) {
+  .profile-details {
+    flex-direction: column; /* Susun foto profil dan info ke bawah */
+    align-items: center; /* Tengahkan item */
+    text-align: center;
+    padding-top: 0;
+  }
+
+  .profile-picture {
+    margin-top: -50px; /* Kurangi efek tumpukan foto */
+    width: 150px;
+    height: 150px;
+  }
+
+  .timeline-wrapper {
+    padding-left: 1rem; /* Kurangi padding timeline */
+  }
+  .timeline-icon {
+    left: -21px; /* Sesuaikan posisi ikon */
+  }
+}

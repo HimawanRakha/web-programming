@@ -148,3 +148,61 @@ video-section {
   height: 100%;
   border: 0;
 }
+
+@media (max-width: 768px) {
+  /* 1. Sesuaikan Banner Carousel */
+  .slide {
+    /* Ubah rasio gambar agar lebih tinggi di layar potrait */
+    aspect-ratio: 16 / 9;
+  }
+
+  .carousel-btn {
+    /* Kecilkan tombol navigasi */
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    padding: 0;
+  }
+  .prev-btn {
+    left: 0.5rem;
+  }
+  .next-btn {
+    right: 0.5rem;
+  }
+
+  .carousel-dots {
+    bottom: 1rem;
+  }
+
+  /* 2. Kecilkan Ukuran Teks */
+  .hometown-intro h1 {
+    font-size: 2.5rem; /* Ukuran judul utama dikecilkan */
+    letter-spacing: 0.05em;
+  }
+
+  .hometown-intro p {
+    font-size: 0.95rem; /* Ukuran font paragraf dikecilkan */
+    max-width: 100%; /* Hapus batasan lebar */
+  }
+
+  /* 3. Ubah Layout Kotak Detail */
+  .details-box {
+    padding: 1.5rem;
+  }
+
+  .details-box dl {
+    /* Ubah dari 2 kolom menjadi 1 kolom */
+    grid-template-columns: 1fr;
+    gap: 0.2rem 0; /* Kurangi jarak antar baris */
+  }
+
+  .details-box dd {
+    /* Beri sedikit jarak dari label di atasnya */
+    margin-bottom: 0.8rem;
+  }
+
+  /* 4. Sesuaikan Jarak Video */
+  .video-section {
+    margin-top: 2rem;
+  }
+}

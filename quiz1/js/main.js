@@ -40,5 +40,41 @@ document.addEventListener("DOMContentLoaded", () => {
   // Setelah komponen sidebar selesai dimuat, panggil fungsi updateActiveNav
   loadComponent(`${pathPrefix}/components/sidebar.html`, "sidebar-placeholder").then(() => {
     updateActiveNav();
+    const mainContent = document.querySelector(".main-content");
+
+    // 1. Buat tombol hamburger secara dinamis
+    const hamburgerBtn = document.createElement("button");
+    hamburgerBtn.className = "hamburger-menu";
+    hamburgerBtn.innerHTML = "&#9776;"; // Karakter ikon hamburger
+
+    // 2. Masukkan tombol ke dalam main-content
+    mainContent.prepend(hamburgerBtn);
+
+    // 3. Tambahkan event listener
+    const sidebar = document.querySelector(".sidebar");
+    hamburgerBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+      hamburgerBtn.classList.toggle("active");
+
+      if (hamburgerBtn.classList.contains("active")) {
+        hamburgerBtn.innerHTML = "&times;"; // Ikon 'X' (close)
+      } else {
+        hamburgerBtn.innerHTML = "&#9776;"; // Ikon hamburger
+      }
+    });
+
+    // 4. (Opsional) Tutup sidebar saat mengklik area konten
+    mainContent.addEventListener("click", (event) => {
+      // Cek agar tidak menutup saat mengklik tombol hamburger itu sendiri
+      if (!hamburgerBtn.contains(event.target) && sidebar.classList.contains("active")) {
+        // Tutup sidebar
+        sidebar.classList.remove("active");
+
+        /* --- PERBAIKAN DI SINI --- */
+        // Kembalikan juga state tombol hamburger
+        hamburgerBtn.classList.remove("active");
+        hamburgerBtn.innerHTML = "&#9776;"; // Kembalikan ke ikon hamburger
+      }
+    });
   });
 });
