@@ -1,4 +1,3 @@
-// quiz1/js/hometown.js
 document.addEventListener("DOMContentLoaded", () => {
   if (document.querySelector(".carousel-container")) {
     const slides = document.querySelector(".carousel-slides");
@@ -14,9 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
       for (let i = 0; i < slideCount; i++) {
         const dot = document.createElement("span");
         dot.classList.add("dot");
-        dot.dataset.index = i; // Simpan index di data-attribute
+        dot.dataset.index = i;
         dot.addEventListener("click", () => {
-          showSlide(i); // Pindah ke slide yang diklik
+          showSlide(i);
           resetInterval();
         });
         dotsContainer.appendChild(dot);
@@ -25,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateDots() {
       const dots = document.querySelectorAll(".dot");
-      dots.forEach((dot) => dot.classList.remove("active")); // Hapus semua kelas active
-      dots[currentIndex].classList.add("active"); // Tambahkan kelas active ke dot yang sesuai
+      dots.forEach((dot) => dot.classList.remove("active"));
+      dots[currentIndex].classList.add("active");
     }
 
     function showSlide(index) {
@@ -69,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       resetInterval();
     });
 
-    createDots(); // Buat dots saat halaman dimuat
+    createDots();
     showSlide(currentIndex);
 
     startCarousel();

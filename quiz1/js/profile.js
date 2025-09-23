@@ -1,4 +1,3 @@
-// quiz1/js/profile.js
 const profileData = [
   {
     title: "EDUCATION",

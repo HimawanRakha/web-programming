@@ -1,6 +1,4 @@
-// quiz1/js/tourist.js
 document.addEventListener("DOMContentLoaded", () => {
-  // --- DATA TEMPAT WISATA ---
   const touristData = [
     {
       name: "Gunung Bromo",
@@ -37,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const grid = document.getElementById("touristGrid");
   const searchInput = document.getElementById("searchInput");
 
-  // --- FUNGSI UNTUK MENAMPILKAN KARTU WISATA ---
   function renderTouristGrid(data) {
     grid.innerHTML = "";
 
@@ -49,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
     data.forEach((place) => {
       const card = document.createElement("div");
       card.className = "tourist-card";
-      // Set gambar sebagai background-image
       card.style.backgroundImage = `url('${place.imageUrl}')`;
 
       card.innerHTML = `
@@ -67,14 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- FUNGSI UNTUK FILTER PENCARIAN ---
   function filterPlaces() {
     const searchTerm = searchInput.value.toLowerCase().trim();
     const filteredData = touristData.filter((place) => place.name.toLowerCase().includes(searchTerm) || place.description.toLowerCase().includes(searchTerm));
     renderTouristGrid(filteredData);
   }
 
-  // --- EVENT LISTENER & INISIALISASI ---
   searchInput.addEventListener("input", filterPlaces);
   renderTouristGrid(touristData);
 });

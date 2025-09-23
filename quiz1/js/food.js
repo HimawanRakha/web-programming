@@ -1,6 +1,4 @@
-// quiz1/js/food.js
 document.addEventListener("DOMContentLoaded", () => {
-  // --- DATA MAKANAN (Bisa Anda tambah atau ubah) ---
   const foodData = [
     {
       name: "Pecel Gudeg Lumajang",
@@ -37,9 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const grid = document.getElementById("foodGrid");
   const searchInput = document.getElementById("searchInput");
 
-  // --- FUNGSI UNTUK MENAMPILKAN KARTU MAKANAN ---
   function renderFoodGrid(data) {
-    grid.innerHTML = ""; // Kosongkan grid sebelum menampilkan hasil baru
+    grid.innerHTML = "";
 
     if (data.length === 0) {
       grid.innerHTML = '<p class="not-found">Makanan tidak ditemukan.</p>';
@@ -60,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- FUNGSI UNTUK FILTER PENCARIAN ---
   function filterFood() {
     const searchTerm = searchInput.value.toLowerCase().trim();
 
@@ -69,9 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderFoodGrid(filteredData);
   }
 
-  // --- EVENT LISTENER ---
   searchInput.addEventListener("input", filterFood);
 
-  // --- TAMPILKAN SEMUA MAKANAN SAAT HALAMAN DIBUKA ---
   renderFoodGrid(foodData);
 });
